@@ -14,7 +14,9 @@ def signing(request):
     # print("req:", request.POST.get("password"))
             
     # query = f"SELECT * FROM demo_user WHERE name = '{username}'"
-    query =  f"SELECT * FROM users WHERE email='{request.POST.get("email")}' AND password = '{request.POST.get("password")}'"
+    email = request.POST.get("email")
+    password = request.POST.get("password")
+    query =  f"SELECT * FROM users WHERE email='{email}' AND password = '{password}'"
     with connection.cursor() as cursor:
         cursor.execute(query)
         users = cursor.fetchall()
