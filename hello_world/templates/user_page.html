@@ -1,18 +1,26 @@
+{% load django_browser_reload %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Page</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
-    <h1>Welcome,</h1>
-    
-    <!-- Check if the user_list is not empty, and display the first user's name -->
-    {% if user_list %}
-        <p>Hello, {{ user_list }}! You are logged in.</p>
-    {% else %}
-        <p>No user is logged in.</p>
-    {% endif %}
+    <div class="App">
+        <header class="App-header">
+            <h1>Welcome,</h1>
+            
+            <!-- Check if the user_list is not empty, and display the first user's name -->
+            {% if user_list %}
+                <p>Hello, {{ user_list }}! You are logged in.</p>
+            {% else %}
+                <p>No user is logged in.</p>
+            {% endif %}
+        </header>
+    </div>
 </body>
 </html>
