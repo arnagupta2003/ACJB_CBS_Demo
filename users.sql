@@ -48,3 +48,4 @@ insert into users (name, email, password) values ('Geneva', 'gmoret1a@mediafire.
 insert into users (name, email, password) values ('Monro', 'mgonin1b@scribd.com', '648LLO''''&#/');
 insert into users (name, email, password) values ('Bill', 'bpieche1c@simplemachines.org', '780.Ss}ID!T');
 insert into users (name, email, password) values ('Pepi', 'pgrandin1d@wp.com', '301%\K9lkVP4uN');
+insert into users (name, email, password) values ('Alice', 'alice@example.com', 'pass');

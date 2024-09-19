@@ -4,11 +4,15 @@ from django.http import JsonResponse
 from django.contrib import messages
 from django.shortcuts import render, redirect
 
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
 def index(request):
     context = {
         "title": "Django example",
     }
     return render(request, "index.html", context)
+@csrf_exempt
 def signing(request):
     # print("req:", request.POST.get("email"))
     # print("req:", request.POST.get("password"))
