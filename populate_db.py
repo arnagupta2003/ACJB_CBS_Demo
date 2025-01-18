@@ -36,7 +36,7 @@ def execute_sql_file(conn, sql_file):
 
 def main():
     database = "db.sqlite3"
-    sql_file = "users.sql"
+    sql_file = "users_hashed.sql"
 
     sql_create_users_table = """
     CREATE TABLE IF NOT EXISTS users (

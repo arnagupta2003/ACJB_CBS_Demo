@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 
 from django.views.decorators.csrf import csrf_exempt
+import hashlib
 
 @csrf_exempt
 def index(request):
@@ -20,11 +21,12 @@ def signing(request):
     # query = f"SELECT * FROM demo_user WHERE name = '{username}'"
     email = request.POST.get("email")
     password = request.POST.get("password")
-    query =  f"SELECT * FROM users WHERE email='{email}' AND password = '{password}'"
+    hashed_pass = hashlib.md5(password.encode()).hexdigest()
+    query =  f"SELECT * FROM users WHERE email='{email}' AND password = '{hashed_pass}'"
     with connection.cursor() as cursor:
         cursor.execute(query)
         users = cursor.fetchall()
-        # print(users)
+        print(users)
         if(len(users)==0):
             messages.error(request, 'Wrong Password/User')
             return redirect("/")
